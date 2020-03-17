@@ -1,5 +1,5 @@
 {
-  "name": "idavoll/core-module",
+  "name": "capham/core-module",
   "type": "asgard-module",
   "description": "The core module for AsgardCMS. This is required for every install.",
   "keywords": [
@@ -8,6 +8,10 @@
   ],
   "license": "MIT",
   "authors": [
+    {
+      "name": "Ca Pham",
+      "email": "capham89@gmail.com"
+    },
     {
       "name": "Nicolas Widart",
       "email": "info@asgardcms.com",
@@ -45,11 +49,6 @@
     "psr-4": {
       "Modules\\Core\\": ".",
       "Modules\\": "Modules/"
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "4.0.x-dev"
     }
   },
   "minimum-stability": "dev",
