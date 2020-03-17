@@ -4,6 +4,7 @@ namespace Modules\Core\Downloader;
 
 use GuzzleHttp\Client;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 use RuntimeException;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -157,7 +158,7 @@ class Downloader
 
     private function extractPackageNameFrom($package)
     {
-        if (str_contains($package, '/') === false) {
+        if (Str::contains($package, '/') === false) {
             throw new \Exception('You need to use vendor/name structure');
         }
 

@@ -2,11 +2,14 @@
 
 namespace Modules\Core\Console;
 
-use Illuminate\Console\Command;
-use Modules\Core\Downloader\Downloader;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
+
+use Illuminate\Support\Str;
+use Illuminate\Console\Command;
+
+use Modules\Core\Downloader\Downloader;
 
 class DownloadModuleCommand extends Command
 {
@@ -98,7 +101,7 @@ class DownloadModuleCommand extends Command
 
     private function extractPackageNameFrom($package)
     {
-        if (str_contains($package, '/') === false) {
+        if (Str::contains($package, '/') === false) {
             throw new \Exception('You need to use vendor/name structure');
         }
 

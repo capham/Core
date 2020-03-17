@@ -4,6 +4,7 @@ namespace Modules\Core\Providers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
@@ -351,7 +352,7 @@ class CoreServiceProvider extends ServiceProvider
     private function onBackend()
     {
         $url = app(Request::class)->path();
-        if (str_contains($url, config('asgard.core.core.admin-prefix'))) {
+        if (Str::contains($url, config('asgard.core.core.admin-prefix'))) {
             return true;
         }
 
