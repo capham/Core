@@ -92,8 +92,8 @@ class CoreServiceProvider extends ServiceProvider
             $this->getSidebarClassForModule('core', RegisterCoreSidebar::class)
         );
         $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
-            $event->load('core', array_dot(trans('core::core')));
-            $event->load('sidebar', array_dot(trans('core::sidebar')));
+            $event->load('core', Arr::dot(trans('core::core')));
+            $event->load('sidebar', Arr::dot(trans('core::sidebar')));
         });
     }
 
