@@ -5,6 +5,7 @@ namespace Modules\Core\Providers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
@@ -202,14 +203,14 @@ class CoreServiceProvider extends ServiceProvider
             $moduleConfig = $this->app['config']->get($configKey . '.useViewNamespaces');
 
             if (count($themes) > 0) {
-                if ($themes['backend'] !== null && array_get($moduleConfig, 'backend-theme') === true) {
+                if ($themes['backend'] !== null && Arr::get($moduleConfig, 'backend-theme') === true) {
                     $hints[] = $themes['backend'] . '/views/modules/' . $moduleName;
                 }
-                if ($themes['frontend'] !== null && array_get($moduleConfig, 'frontend-theme') === true) {
+                if ($themes['frontend'] !== null && Arr::get($moduleConfig, 'frontend-theme') === true) {
                     $hints[] = $themes['frontend'] . '/views/modules/' . $moduleName;
                 }
             }
-            if (array_get($moduleConfig, 'resources') === true) {
+            if (Arr::get($moduleConfig, 'resources') === true) {
                 $hints[] = base_path('resources/views/asgard/' . $moduleName);
             }
         }
